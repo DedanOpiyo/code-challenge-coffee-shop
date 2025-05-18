@@ -1,6 +1,4 @@
 # coffee.py
-# from order import Order
-# from lib.order import Order
 
 class Coffee:
 
@@ -33,9 +31,3 @@ class Coffee:
         if self.orders():
             return sum(order.price for order in self.orders()) / self.num_orders()
         return "No orders have been made yet"
-
-
-# # Test
-# coffee = Coffee("Espresso")
-# print(coffee.name)
-# print(coffee.orders())

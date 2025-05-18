@@ -197,7 +197,7 @@ class Order:
         if not 1.0 <= float(value) <= 10.0:
             raise ValueError("Price should fall between 1.0 and 10.0")
         self._price = float(value)
-    ```
+```
 
 
 5. Define Object Relationship Methods and Properties
@@ -251,7 +251,7 @@ The above logic also applies for customer instance.
     def coffees(self):
         # unique list of `Coffee` instances. 
         return list({order.coffee for order in self.orders()})
-    ```
+```
 
 
 6. Implement Aggregate and Association Methods
@@ -282,7 +282,7 @@ the num_orders(self) method, calls orders method- whch returns an array of order
         if self.orders():
             return sum(order.price for order in self.orders()) / self.num_orders()
         return "No orders have been made yet"
-    ```
+```
 the average_price(self) method, determines if orders exist/if there are any orders, self.orders() returns an array of orders. If there are orders, it iterates over them, accessing the price of each. sum() method is used to accumulate all the prices, which is divided by the number of orders. 
 
 
@@ -316,7 +316,7 @@ the average_price(self) method, determines if orders exist/if there are any orde
             
         return highest_spender
 
-    ```
+```
 
 The most_aficionado(cls, coffee) class method above:
 

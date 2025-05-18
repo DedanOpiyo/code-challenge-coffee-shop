@@ -1,6 +1,4 @@
-# # customer.py
-# from coffee import Coffee
-# from order import Order
+# customer.py
 
 class Customer:
     def __init__(self, name):
@@ -49,7 +47,3 @@ class Customer:
                 highest_spender = customer
             
         return highest_spender
-
-# # Test
-# customer = Customer("James")
-# print(customer.name)
