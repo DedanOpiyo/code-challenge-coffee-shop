@@ -58,7 +58,7 @@ To order a coffee, a customer need to specify the coffee they are ordering.
 * We would need to proide a price for every coffee
 -so our order would need a customer, coffee name, and a price!
 
--* pullying it together:
+*-pullying it together:
 
 Order class seem to be our single source of truth(SSOT), an intermediary between Customer and Coffee classes.
 We need to initialize an order with a customer, instance of Customer class, a coffee, instance of Coffee class and a pice.
@@ -346,3 +346,7 @@ python debug.py
 or
 python3 debug.py
 ```
+
+## Conclusion
+
+This Coffee Shop domain model demonstrates the principles of object-oriented programming, including encapsulation, relationships, validation, and aggregation. By modeling real-world entities like customers, coffees, and orders, the system provides a clean and extensible foundation for managing coffee shop operations. The project is structured for clarity and maintainability, making it easy to expand with additional features such as persistence, a user interface, or integration with a backend API.
