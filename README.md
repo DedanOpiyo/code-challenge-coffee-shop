@@ -17,8 +17,9 @@ The goal is to simulate a coffee shop domain by building a Python application fr
      ```bash
      pipen
 
--**Refer to step three for file creation if you want to create the project from scratch: 3. Create Class Files
--**Alternatively fork and clone the repo to follow along with the code and run:
+*__Refer to step three for file creation. if you want to create the project from scratch* — 
+`3. Create Class Files`  
+**Alternatively fork and clone the repo to follow along with the code and run:
 ```bash
 pipenv install
 pipenv shell
@@ -38,42 +39,42 @@ pipenv shell
 
 <u>**Pseudocode**</u>
 
-\- The domain model for the coffee shop includes: 
-customers, coffee, and orders.  
-A customer engages with the shop by placing an order.  
-A customer places an order for coffee.  
-A customer has the ability to order multiple coffees.  
-Coffee is requested by the customer.  
-In order for coffee to be ordered, a customer must be present.   
-We need to track who is ordering our coffee.  
-We need to monitor the total number of orders made for our coffee.  
-We need to identify which coffees have been ordered.
+The domain model for the coffee shop includes: 
+\- customers, coffee, and orders.  
+\- A customer engages with the shop by placing an order.  
+\- A customer places an order for coffee.  
+\- A customer has the ability to order multiple coffees.  
+\- Coffee is requested by the customer.  
+\- In order for coffee to be ordered, a customer must be present.   
+\- We need to track who is ordering our coffee.  
+\- We need to monitor the total number of orders made for our coffee.  
+\- We need to identify which coffees have been ordered.
 
-Both the customer and the coffee are involved in an order.  
-An order consists of a specific type of coffee and details about the customer who placed it.  
-We need to keep track of the total number of orders made so far.
+\- Both the customer and the coffee are involved in an order.  
+\- An order consists of a specific type of coffee and details about the customer who placed it.  
+\- We need to keep track of the total number of orders made so far.
 
-To place a coffee order, a customer must indicate which coffee they want.  
+\- To place a coffee order, a customer must indicate which coffee they want.  
 * Each coffee needs to have a name!  
 * We also need the name of the customer.  
 * Additionally, we must provide a price for each coffee; thus, our order should include a customer, coffee name, and the price!
 
-\-<u>__pullying it together__**:**</u>
+<u>__pullying it together__**:**</u>
 
-The **Order** class acts as our sole **source of truth** (SSOT), serving as a mediator(intermediary) between the Customer and Coffee classes.  
-We should create an order by providing it with a customer, which is an instance of the Customer class, a coffee, represented by an instance of the Coffee class, and a price.  
-We can introduce a class attribute called `all` to track all of our orders.  
-Lastly, we need to complete our constructor by assigning the Order instance to the `all` class attribute.
+\- The **Order** class acts as our sole **source of truth** (SSOT), serving as a mediator(intermediary) between the Customer and Coffee classes.  
+\- We should create an order by providing it with a customer, which is an instance of the Customer class, a coffee, represented by an instance of the Coffee class, and a price.  
+\- We can introduce a class attribute called `all` to track all of our orders.  
+\- Lastly, we need to complete our constructor by assigning the Order instance to the `all` class attribute.
 
-The Customer class should be initialized with a name.  
-We will require a class attribute, `all`, to track all instances of customers.  
-The class needs a method called `create_an_order()`, which accepts three parameters: the customer instance (self), a coffee instance (coffee), and the price.  
-Additionally, we will need a method called `get_orders()` that will retrieve orders from the Order class corresponding to the specific customer instance. By accessing the order instances/objects, we can obtain details about which coffee instances the customer has ordered. We can chain the name attribute to find out the names of the coffees ordered by the customer.
+\- The Customer class should be initialized with a name.  
+\- We will require a class attribute, `all`, to track all instances of customers.  
+\- The class needs a method called `create_an_order()`, which accepts three parameters: the customer instance (self), a coffee instance (coffee), and the price.  
+\- Additionally, we will need a method called `get_orders()` that will retrieve orders from the Order class corresponding to the specific customer instance. By accessing the order instances/objects, we can obtain details about which coffee instances the customer has ordered. We can chain the name attribute to find out the names of the coffees ordered by the customer.
 
-The Coffee class should be initialized with a name.  
-We require a class attribute, all, to monitor all coffee instances.  
-We need to identify customers that place orders for specific coffee. To achieve this, we need a `customer()` method. This method will gather the information from the orders attribute in the Order class.  
-We can filter the relevant orders by selecting those that meet the criteria of the current Coffee instance using the self keyword. Since the orders keep track of customer instances, we can chain the customer attribute in the Order class to obtain customer instances that correspond to our situation.
+\- The Coffee class should be initialized with a name.  
+\- We require a class attribute, all, to monitor all coffee instances.  
+\- We need to identify customers that place orders for specific coffee. To achieve this, we need a `customer()` method. This method will gather the information from the orders attribute in the Order class.  
+\- We can filter the relevant orders by selecting those that meet the criteria of the current Coffee instance using the self keyword. Since the orders keep track of customer instances, we can chain the customer attribute in the Order class to obtain customer instances that correspond to our situation.
 
 
 3. Create Class Files
