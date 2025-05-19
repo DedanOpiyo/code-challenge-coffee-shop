@@ -1,6 +1,6 @@
 # Coffee Shop Domain Modeling
 ## Objective
-The objective is to create a Python application from scratch to model a Coffee Shop domain. Object-oriented programming principles should guide the implementations. The project showcases the ability to design classes, implement methods, establish relationships between objects, and handle data appropriately.
+The goal is to simulate a coffee shop domain by building a Python application from scratch. The implementations follow the guidelines of object-oriented programming. The project demonstrates the capacity to create classes, put methods into practice, create object relationships, and manage data properly.
 
 ## Implementations
 
@@ -36,43 +36,44 @@ pipenv shell
 
 ### implementation
 
-**Pseudocode**
-*-Coffee shop domain model constitute:
-Customers, coffee, and an order.
-A customer interacts with the shop by making an order.
-A customer orders coffee.
-A customer can order more than one coffee.
-Coffee is ordered by the customer.
-For coffee to be ordered, it needs a customer.
-We need to keep track of who orders our coffee.
-We need to keep track of the number of orders made on our coffee.
-We need to know which coffee has been ordered.
+<u>**Pseudocode**</u>
 
-Both customer and coffee pointa at an order.
-An order will consoist of a particular coffee, and a trace of the customer who made the order.
-We need to know how many orders there are so far.
+\- The domain model for the coffee shop includes: 
+customers, coffee, and orders.  
+A customer engages with the shop by placing an order.  
+A customer places an order for coffee.  
+A customer has the ability to order multiple coffees.  
+Coffee is requested by the customer.  
+In order for coffee to be ordered, a customer must be present.   
+We need to track who is ordering our coffee.  
+We need to monitor the total number of orders made for our coffee.  
+We need to identify which coffees have been ordered.
 
-To order a coffee, a customer need to specify the coffee they are ordering.
-* Our coffee would need a name!
-* We would need the name of our customer
-* We would need to proide a price for every coffee
--so our order would need a customer, coffee name, and a price!
+Both the customer and the coffee are involved in an order.  
+An order consists of a specific type of coffee and details about the customer who placed it.  
+We need to keep track of the total number of orders made so far.
 
-*-pullying it together:
+To place a coffee order, a customer must indicate which coffee they want.  
+* Each coffee needs to have a name!  
+* We also need the name of the customer.  
+* Additionally, we must provide a price for each coffee; thus, our order should include a customer, coffee name, and the price!
 
-Order class seem to be our single source of truth(SSOT), an intermediary between Customer and Coffee classes.
-We need to initialize an order with a customer, instance of Customer class, a coffee, instance of Coffee class and a pice.
-We can have a class attribute all to keep track of all our orders.
-We would need to conclude our constructor by assigning Order instance to the class attribute -all.
+\-<u>__pullying it together__**:**</u>
 
-Customer class would need to initialize with a name.
-We would need a class attribute, all, to keep track of all customer instances.
-The class would need a method to create_an_order(), which will take 3 parameters. customer instance(self), coffee instance(coffee), and price.
-We would need get_orders() method, that would acess orders from Order class that match the class instance. Through the order instances/objects, we can access informtion on what coffee instances the customer has ordered. We can chain name attribute to access the name of coffee that customer has ordered.
+The **Order** class acts as our sole **source of truth** (SSOT), serving as a mediator(intermediary) between the Customer and Coffee classes.  
+We should create an order by providing it with a customer, which is an instance of the Customer class, a coffee, represented by an instance of the Coffee class, and a price.  
+We can introduce a class attribute called `all` to track all of our orders.  
+Lastly, we need to complete our constructor by assigning the Order instance to the `all` class attribute.
 
-Coffee class would need to initialize with a name. 
-We would need a class attribute, all, to keep track of all coffee instances.
-We would need to refer to customers that order particular coffee. For this we need a customer() method. The method would retrieve this information from orders attribute in Order class. We can filter relevant orders by retrieving those that satisfy the current Cofee instance through the self keyword. Since the orders track customer instances, we can chain the customer attribute(in Order class) to retrieve customer instances that match our case.
+The Customer class should be initialized with a name.  
+We will require a class attribute, `all`, to track all instances of customers.  
+The class needs a method called `create_an_order()`, which accepts three parameters: the customer instance (self), a coffee instance (coffee), and the price.  
+Additionally, we will need a method called `get_orders()` that will retrieve orders from the Order class corresponding to the specific customer instance. By accessing the order instances/objects, we can obtain details about which coffee instances the customer has ordered. We can chain the name attribute to find out the names of the coffees ordered by the customer.
+
+The Coffee class should be initialized with a name.  
+We require a class attribute, all, to monitor all coffee instances.  
+We need to identify customers that place orders for specific coffee. To achieve this, we need a `customer()` method. This method will gather the information from the orders attribute in the Order class.  
+We can filter the relevant orders by selecting those that meet the criteria of the current Coffee instance using the self keyword. Since the orders keep track of customer instances, we can chain the customer attribute in the Order class to obtain customer instances that correspond to our situation.
 
 
 3. Create Class Files
@@ -150,9 +151,9 @@ class Customer:
         self._name = name
     ```
 
-Customer class is initialized with a name attribute. The @name.setter validates the name, first confirming if it is a string, then confirming if it is of the required length, and finally setting it to the name attribute.
+The Customer class is initialized with a name property. The @name.setter checks the name by first verifying that it is a string, then ensuring it meets the necessary length, and ultimately assigning it to the name attribute. 
 
-Similar validation logic is applied for Coffee and Order classes. the property decorator is used to validate(@attribute.setter), and retrieve(@property) an instance attribute.
+Comparable validation logic is utilized for the Coffee and Order classes. The property decorator is employed to validate (@attribute.setter) and access (@property) an instance attribute.
 See below:
 
 ``` coffee.py
@@ -226,11 +227,11 @@ class Order:
             raise TypeError("customer must be an instance of Customer class")
         self._customer = customer
     ```
-the customer setter validates customer attribute implementation. it accepts an argument, and validates whether it is a Customer instance. if it is, the class attribute is set to the instance as a private attribute(self._customer), notice the undescore preceding customer.
+The customer setter validates customer attribute implementation. It accepts an argument and validates whether it is a Customer instance. If it is, the class attribute is set to the instance as a private attribute(self._customer). Notice the underscore preceding customer.
 
-To get the customer instance, we can invoke the customer property. accessing order.customer, returns the _customer attribute (a Customer instance).
+To get the customer instance, we can invoke the customer property. Accessing order.customer, yields/returns the _customer attribute (a Customer instance).
 
-The exact same logic applies for coffee property.
+The same logic applies to coffee property.
 
 ``` coffee.py
     def orders(self):

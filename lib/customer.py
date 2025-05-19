@@ -21,8 +21,7 @@ class Customer:
         return [order for order in Order.orders if order.customer == self]
     
     def coffees(self):
-        # unique list of `Coffee` instances. 
-        return list({order.coffee for order in self.orders()})
+        return list({order.coffee for order in self.orders()}) # unique list of `Coffee` instances. 
     
     def create_order(self, coffee, price): # validations will be done by Order class
         from order import Order
