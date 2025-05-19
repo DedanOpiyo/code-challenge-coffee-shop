@@ -17,7 +17,7 @@ The goal is to simulate a coffee shop domain by building a Python application fr
      ```bash
      pipen
 
-*__Refer to step three for file creation. if you want to create the project from scratch* — 
+*Refer to step three for file creation. if you want to create the project from scratch* — 
 `3. Create Class Files`  
 **Alternatively fork and clone the repo to follow along with the code and run:
 ```bash
